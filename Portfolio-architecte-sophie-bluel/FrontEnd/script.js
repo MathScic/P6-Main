@@ -9,7 +9,7 @@ try {
 
 // donst afficherTravaux = (data) => {
 travaux.forEach((travail) => {
-  console.log(travail.imageUrl);
+  //console.log(travail.imageUrl);
   let firstTravaux = document.querySelector(".gallery");
   firstTravaux.innerHTML += `<figure class ="categories" > 
   <img src="${travail.imageUrl}" alt="${travail.title}" />
@@ -22,22 +22,12 @@ travaux.forEach((travail) => {
 
 // 2 foreach pour html et event listener pour chaque catégorie creer
 //+ methode filter pour filtrer le tableau et ensuite reconstruire le tableau
-
-let allTravaux = null;
-let objet = null;
-let appartement = null;
-let hotelEtRestaurant = null;
-let works = null;
-let categories = null;
-const objetCategoryId = 1;
-const appartementCategoryId = 2;
-const hotelEtRestaurantCategoryId = 3;
-const tableauCategories = [
+let categories;
+/**const tableauCategories = [
   { id: 1, name: "Objets" },
   { id: 2, name: "Appartements" },
   { id: 3, name: "Hotels et restaurants" },
-];
-
+];**/
 let id;
 
 try {
@@ -47,21 +37,21 @@ try {
   console.log(error);
 }
 
-const displayCategories = () => {
-  categories.forEach((category) => {
-    const container = document.querySelector(".gallery");
-    const categoriesHtml = document.createElement("a");
-    const listeCategories = document.createElement("ul");
-    categoriesHtml.innerText = "Ou apparait tu ?";
-    categoriesHtml.setAttribute("href", "");
-    listeCategories.innerHTML += `<li><a>${category.id[0].name["Objets"]}</a></li>`;
-    container.append(categoriesHtml);
-    //ajout ul li de Html de base
-    categoriesHtml.addEventListener("click", () => {
-      filtreTravauxParCategorie();
-    });
+categories.forEach((category) => {
+  console.log(category);
+  const container = document.querySelector(".gallery");
+  const categoriesHtml = document.createElement("a");
+  const listeCategories = document.createElement("ul");
+
+  (categoriesHtml.innerText = "Tous"), "Appartement", "hotel";
+  listeCategories.setAttribute("href", "http://localhost:5678/api/categories");
+  categoriesHtml.innerHTML += `<li>${[1]}</li>`;
+  container.append(categoriesHtml, listeCategories);
+
+  categoriesHtml.addEventListener("click", () => {
+    filtreTravauxParCategorie(categoriesHtml, listeCategories, [1]);
   });
-};
+});
 
 const filtreTravauxParCategorie = (category, categoryId) => {
   const filtreTravaux = travaux.filter((travail) => {
