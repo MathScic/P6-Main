@@ -43,18 +43,18 @@ categories.forEach((category) => {
   const categoriesHtml = document.createElement("a");
   const listeCategories = document.createElement("ul");
 
-  (categoriesHtml.innerText = "Tous"), "Appartement", "hotel";
-  listeCategories.setAttribute("href", "http://localhost:5678/api/categories");
-  categoriesHtml.innerHTML += `<li>${[1]}</li>`;
+  categoriesHtml.innerText = category.name;
+  listeCategories.setAttribute("href", "#");
+  categoriesHtml.innerHTML += `<li>${category.id}</li>`;
   container.append(categoriesHtml, listeCategories);
 
   categoriesHtml.addEventListener("click", () => {
-    filtreTravauxParCategorie(categoriesHtml, listeCategories, [1]);
+    filtreTravauxParCategorie();
   });
 });
 
 const filtreTravauxParCategorie = (category, categoryId) => {
   const filtreTravaux = travaux.filter((travail) => {
-    return tableauCategories.id === travail.categoryId;
+    return filtreTravaux.id === travail.categoryId;
   });
 };
