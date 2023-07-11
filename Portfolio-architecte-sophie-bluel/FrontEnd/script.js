@@ -42,11 +42,13 @@ categories.forEach((category) => {
   const container = document.querySelector(".gallery");
   const categoriesHtml = document.createElement("a");
   const listeCategories = document.createElement("ul");
+  const filtres = document.querySelector(".filtres");
 
   categoriesHtml.innerText = category.name;
   listeCategories.setAttribute("href", "#");
   categoriesHtml.innerHTML += `<li>${category.id}</li>`;
   container.append(categoriesHtml, listeCategories);
+  filtres.innerText = category.name;
 
   categoriesHtml.addEventListener("click", () => {
     filtreTravauxParCategorie();
