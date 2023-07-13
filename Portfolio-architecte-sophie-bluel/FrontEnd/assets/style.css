@@ -3,6 +3,8 @@
    License: none (public domain)
 */
 
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Raleway:wght@300;400;600;700;800;900&family=Roboto:ital,wght@0,400;0,500;1,100&family=Shrikhand&family=Syne:wght@600&display=swap');
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -207,5 +209,15 @@ footer nav ul {
 .filtres a:hover {
 	background-color: #1D6154;
 	color: white;
+}
+
+header a {
+	text-decoration: none;
+	color: black;
+}
+
+header a:hover {
+	cursor: pointer;
+	color: #B1663C;
 }
 

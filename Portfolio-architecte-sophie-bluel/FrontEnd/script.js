@@ -23,6 +23,7 @@ let categories;
 ];**/
 let id;
 
+/**Filtres travaux */
 try {
   const response = await fetch("http://localhost:5678/api/categories");
   categories = await response.json();
@@ -70,3 +71,15 @@ function displayTravaux(travaux) {
   </figure>`;
   });
 }
+
+/**Page de connexion */
+
+try {
+  const response = await fetch("http://localhost:5678/api/users/login");
+  login = await response.json();
+} catch (error) {
+  console.log(error);
+}
+
+const recupEmail = document.querySelector(".container_input_email").value;
+console.log(recupEmail);
