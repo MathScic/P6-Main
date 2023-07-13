@@ -8,15 +8,8 @@ try {
 }
 
 // donst afficherTravaux = (data) => {
-travaux.forEach((travail) => {
-  //console.log(travail.imageUrl);
-  let firstTravaux = document.querySelector(".gallery");
-  firstTravaux.innerHTML += `<figure class ="categories" > 
-  <img src="${travail.imageUrl}" alt="${travail.title}" />
-  <figcaption>${travail.title}</figcaption>
-</figure>`;
-});
-//}
+
+displayTravaux(travaux);
 
 // add event listener
 
@@ -37,26 +30,43 @@ try {
   console.log(error);
 }
 
+const filtres = document.querySelector(".filtres");
+const gallery = document.querySelector(".gallery");
+
 categories.forEach((category) => {
   console.log(category);
-  const container = document.querySelector(".gallery");
-  const categoriesHtml = document.createElement("a");
-  const listeCategories = document.createElement("ul");
-  const filtres = document.querySelector(".filtres");
+  const li = document.createElement("li");
+  const a = document.createElement("a");
+  a.setAttribute("href", "#");
 
-  categoriesHtml.innerText = category.name;
-  listeCategories.setAttribute("href", "#");
-  categoriesHtml.innerHTML += `<li>${category.id}</li>`;
-  container.append(categoriesHtml, listeCategories);
-  filtres.innerText = category.name;
+  li.append(a);
+  filtres.append(li);
+  a.innerText = category.name;
 
-  categoriesHtml.addEventListener("click", () => {
-    filtreTravauxParCategorie();
+  a.addEventListener("click", () => {
+    console.log(category.name);
+    console.log(category.id);
+    filtreTravauxParCategorie(category.id);
   });
 });
 
-const filtreTravauxParCategorie = (category, categoryId) => {
+const filtreTravauxParCategorie = (categoryId) => {
+  console.log(categoryId);
   const filtreTravaux = travaux.filter((travail) => {
-    return filtreTravaux.id === travail.categoryId;
+    return categoryId === travail.categoryId;
   });
+  gallery.innerHTML = "";
+
+  displayTravaux(filtreTravaux);
+  console.log(filtreTravaux);
 };
+
+function displayTravaux(travaux) {
+  travaux.forEach((travail) => {
+    let firstTravaux = document.querySelector(".gallery");
+    firstTravaux.innerHTML += `<figure class ="categories" > 
+    <img src="${travail.imageUrl}" alt="${travail.title}" />
+    <figcaption>${travail.title}</figcaption>
+  </figure>`;
+  });
+}
