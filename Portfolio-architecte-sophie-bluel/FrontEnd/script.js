@@ -75,8 +75,21 @@ function displayTravaux(travaux) {
 /**Page de connexion */
 
 try {
-  const response = await fetch("http://localhost:5678/api/users/login");
-  login = await response.json();
+  const setting = {
+    method: "POST", //Méthod utiliser (GET, POST, PUT, DELETE...)
+    headers: { "Content-Type": "application/json" }, // Headers = en tete de la requete //Content-type = contenue de en tete personaliser
+    body: JSON.stringify({
+      //Corp de la requète contient donner a envoyer
+      email: "string",
+      password: "string",
+    }),
+  };
+  const response = await fetch(
+    "http://localhost:5678/api/users/login",
+    settings
+  );
+  const login = await response.json();
+  console.log(login);
 } catch (error) {
   console.log(error);
 }
