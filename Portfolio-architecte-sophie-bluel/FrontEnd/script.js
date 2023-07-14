@@ -94,5 +94,14 @@ try {
   console.log(error);
 }
 
-const recupEmail = document.querySelector(".container_input_email").value;
-console.log(recupEmail);
+const email = document.addEventListener("click", () => {
+  const inputEmail = document.querySelector(".container_input_email");
+  console.log(inputEmail);
+
+  if (inputEmail) {
+    const recupEmail = inputEmail.value;
+    console.log(recupEmail);
+  } else {
+    console.log("");
+  }
+});
