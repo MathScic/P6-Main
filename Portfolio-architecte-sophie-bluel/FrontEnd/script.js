@@ -74,27 +74,29 @@ function displayTravaux(travaux) {
 
 /**Page de connexion */
 
-try {
-  const setting = {
-    method: "POST", //Méthod utiliser (GET, POST, PUT, DELETE...)
-    headers: { "Content-Type": "application/json" }, // Headers = en tete de la requete //Content-type = contenue de en tete personaliser
-    body: JSON.stringify({
-      //Corp de la requète contient donner a envoyer
-      email: "string",
-      password: "string",
-    }),
-  };
-  const response = await fetch(
-    "http://localhost:5678/api/users/login",
-    settings
-  );
-  const login = await response.json();
-  console.log(login);
-} catch (error) {
-  console.log(error);
-}
 
-const email = document.addEventListener("click", () => {
+
+document.addEventListener("submit", () => {
+  try {
+    const settings = {
+      method: "POST", //Méthod utiliser (GET, POST, PUT, DELETE...)
+      headers: { "Content-Type": "application/json" }, // Headers = en tete de la requete //Content-type = contenue de en tete personaliser
+      body: JSON.stringify({
+        //Corp de la requète contient donner a envoyer
+        email: input.value,
+        password: input.value,
+      }),
+    };
+    const response = await fetch(
+      "http://localhost:5678/api/users/login",
+      settings
+    );
+    const login = await response.json();
+    console.log(login);
+  } catch (error) {
+    console.log(error);
+  }
+
   const inputEmail = document.querySelector(".container_input_email");
   console.log(inputEmail);
 
