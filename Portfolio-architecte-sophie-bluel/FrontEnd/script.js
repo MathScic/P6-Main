@@ -65,45 +65,28 @@ const filtreTravauxParCategorie = (categoryId) => {
 function displayTravaux(travaux) {
   travaux.forEach((travail) => {
     let firstTravaux = document.querySelector(".gallery");
-    firstTravaux.innerHTML += `<figure class ="categories" > 
+    firstTravaux.innerHTML += `<figure class="categories"> 
     <img src="${travail.imageUrl}" alt="${travail.title}" />
     <figcaption>${travail.title}</figcaption>
   </figure>`;
   });
 }
 
-/**Page de connexion */
-
-
-
-document.addEventListener("submit", () => {
+//Suppression photo 4
+const lien = document.querySelector(".aaa");
+lien.addEventListener("click", async () => {
+  const settings = {
+    method: "DELETE", //Méthod utiliser (GET, POST, PUT, DELETE...)
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${localStorage.getItem("token")}`,
+    }, // Headers = en tete de la requete //Content-type = contenue de en tete personaliser
+  };
   try {
-    const settings = {
-      method: "POST", //Méthod utiliser (GET, POST, PUT, DELETE...)
-      headers: { "Content-Type": "application/json" }, // Headers = en tete de la requete //Content-type = contenue de en tete personaliser
-      body: JSON.stringify({
-        //Corp de la requète contient donner a envoyer
-        email: input.value,
-        password: input.value,
-      }),
-    };
-    const response = await fetch(
-      "http://localhost:5678/api/users/login",
-      settings
-    );
+    const response = await fetch("http://localhost:5678/api/works/4", settings);
     const login = await response.json();
     console.log(login);
   } catch (error) {
-    console.log(error);
-  }
-
-  const inputEmail = document.querySelector(".container_input_email");
-  console.log(inputEmail);
-
-  if (inputEmail) {
-    const recupEmail = inputEmail.value;
-    console.log(recupEmail);
-  } else {
-    console.log("");
+    console.error();
   }
 });
