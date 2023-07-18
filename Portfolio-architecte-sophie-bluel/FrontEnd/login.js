@@ -28,6 +28,10 @@ form.addEventListener("submit", async (event) => {
     window.location = "index.html"; //re direction sur page accueil
     console.log(login);
   } catch (error) {
+    const erreurLogin = document.querySelector(".erreur_login");
+    erreurLogin.innerText = `Mot de passe ou Identifiant invalide`;
+    erreurLogin.style.color = "red";
+    console.log(erreurLogin);
     console.log(error);
   }
 
@@ -35,9 +39,6 @@ form.addEventListener("submit", async (event) => {
 
   if (inputEmail) {
     const recupEmail = inputEmail.value;
-    const erreurLogin = document.querySelector(".erreur_login");
-    erreurLogin.innerText = `Mot de passe ou Identifiant invalide`;
-    erreurLogin.style.color = "red";
     console.log(recupEmail);
   } else {
     console.log("");
