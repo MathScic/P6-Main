@@ -12,6 +12,7 @@
     />
     <meta name="description" content="" />
     <link rel="stylesheet" href="./assets/style.css" />
+    <link rel="stylesheet" href="modal.css" />
     <script
       src="https://kit.fontawesome.com/76e9b7325c.js"
       crossorigin="anonymous"
@@ -57,9 +58,13 @@
       <section id="portfolio">
         <h2>
           Mes Projets
-          <a href="modal.html" class="js-modal" aria-hidden="true" role="dialog"
-            ><i class="fa-thin fa-pen-to-square"></i>modifier</a
-          >
+          <a href="#" class="js-modal">Modifier</a>
+          <aside id="" class="modal" aria-hidden="true" role="dialog">
+            <div class="modal-wrapper">
+              <button class="js-modal-close">Fermer</button>
+              <h1>Gallerie photo</h1>
+            </div>
+          </aside>
         </h2>
 
         <ul class="filtres"></ul>
@@ -90,5 +95,6 @@
         </ul>
       </nav>
     </footer>
+    <script src="modal.js"></script>
   </body>
 </html>
