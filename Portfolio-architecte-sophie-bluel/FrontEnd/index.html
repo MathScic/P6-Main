@@ -11,6 +11,10 @@
       rel="stylesheet"
     />
     <meta name="description" content="" />
+    <script
+      src="https://kit.fontawesome.com/76e9b7325c.js"
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" href="./assets/style.css" />
     <link rel="stylesheet" href="modal.css" />
     <script
@@ -58,13 +62,21 @@
       <section id="portfolio">
         <h2>
           Mes Projets
-          <a href="#" class="js-modal">Modifier</a>
-          <aside id="" class="modal" aria-hidden="true" role="dialog">
-            <div class="modal-wrapper">
-              <button class="js-modal-close">Fermer</button>
-              <h1>Gallerie photo</h1>
-            </div>
-          </aside>
+
+          <a href="#" class="js-modal"
+            ><i class="fa-thin fa-pen-to-square"></i>modifier</a
+          >
+          <div class="container">
+            <aside id="" class="modal" aria-hidden="true" role="dialog">
+              <div class="modal-wrapper">
+                <button class="js-modal-close">fermer</button>
+                <h1>Gallerie photo</h1>
+                <img class="modal-img" src="" alt="Photo dans la modal" />
+                <button class="button_container">Ajouter une photo</button>
+                <button class="supr_container">Supprimer la galerie</button>
+              </div>
+            </aside>
+          </div>
         </h2>
 
         <ul class="filtres"></ul>

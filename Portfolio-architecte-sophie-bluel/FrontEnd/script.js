@@ -7,7 +7,7 @@ try {
   console.log(error);
 }
 
-// donst afficherTravaux = (data) => {
+// const afficherTravaux = (data) => {
 
 displayTravaux(travaux);
 

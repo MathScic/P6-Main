@@ -221,34 +221,75 @@ header a:hover {
 	color: #B1663C;
 }
 
+/**Modifier**/
+#portfolio a {
+	margin-left: 1rem;
+	font-size: 15px;
+	text-decoration: none;
+	color: black;
+}
 /** Modal **/
-/**Modal**/ 
-body, html {
-    margin: 0;
-    padding: 0;
+aside h1 {
+	font-family: worksans, sans-serif;
+	font-weight: 300;
+	color: black;
+	font-size: 25px;
 }
 
-* { 
-    box-sizing: border-box;
+aside button {
+	margin-left: 32rem;
 }
 
-.modal {
-    position: fixed;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0 , 0, 0.3);
+.container {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	gap: 10px;
 }
 
-.modal-wrapper {
-    overflow: auto;
-    width: 600px;
-    max-width: calc(100vw - 20px);
-    max-height: calc(100vh - 20px);
-    padding: 20px;
-    background-color: #fff;
+h1 {
+    display: block;
+    text-align: center;
+  }
+
+.button_container {
+    display: block;
+    margin: 0 auto;
+  }
+
+.button_container {
+	margin-top: 1rem;
+	padding: 15px;
+	width: 230px;
+	border: 1px solid rgba(0, 0, 0, 0.09);
+	border-radius: 60px;
+	background-color: #1D6154;
+	color: white;
+	outline: none;
+	box-shadow:rgba(0, 0, 0, 0.09);
+	font-size: 18px;
+}
+
+.supr_container {
+	margin-top: 2rem;
+	padding: 15px;
+	width: 200px;
+	border: 1px solid transparent;
+	border-radius: 60px;
+	background-color: transparent;
+	color: #FF5733;
+	outline: none;
+	box-shadow:rgba(0, 0, 0, 0.09);
+	font-size: 16px;
+}
+
+.supr_container {
+	display: block;
+    margin: 0 auto;
+}
+
+.button_container, .supr_container:hover {
+	cursor: pointer;
 }
