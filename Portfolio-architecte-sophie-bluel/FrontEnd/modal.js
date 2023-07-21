@@ -5,13 +5,17 @@ const modalImg = modal.querySelector(".modal-img");
 const openModal = async function (e) {
   try {
     const response = await fetch("http://localhost:5678/api/works");
-    modalImg = await response.json();
-    const imageUrl = modalImg.imageUrl;
+    const data = await response.json();
+    const imageUrl = data.imageUrl;
     modalImg.setAttribute("src", imageUrl);
   } catch (error) {
     console.log(error);
   }
 
+  modal.innerHTML += `<img class="modal-img"> 
+    <img src="${modal.imageUrl}" alt="${modal.title}" />
+    <figcaption>${modal.title}</figcaption>
+  </figure>`;
   modal.style.display = "flex"; //Sert a aficher la div de la modal
   modal.setAttribute("aria-hidden", "false"); //indique modal affiché (pour malvoyant) au lecteur d'écran
   modal.setAttribute("aria-modal", "true"); // indique que la div correspond a la modal
