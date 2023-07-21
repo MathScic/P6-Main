@@ -1,18 +1,29 @@
 //Modal
+
 let modal = document.querySelector(".modal");
 const modalImg = modal.querySelector(".modal-img");
+let importImg;
 
 const openModal = async function (e) {
   try {
     const response = await fetch("http://localhost:5678/api/works");
-    const data = await response.json();
-    const imageUrl = data.imageUrl;
-    modalImg.setAttribute("src", imageUrl);
+    importImg = await response.json();
   } catch (error) {
     console.log(error);
   }
 
-  modalImg.innerHTML = `<img class="modal-img" src="${modal.imageUrl}" alt="Photo dans la modal" />`;
+  const containerImg = document.getElementById("img-container");
+  const maxImg = 11;
+  let counterImg = 0;
+
+  importImg.forEach((imageUrl) => {
+    console.log(imageUrl);
+    const imgElement = document.createElement("img");
+    imgElement.src = imageUrl;
+    containerImg.append(imgElement);
+    imgElement.innerHTML += `<img src="${imgElement.imageUrl}" alt="${imgElement.title}" />`;
+  });
+
   modal.style.display = "flex"; //Sert a aficher la div de la modal
   modal.setAttribute("aria-hidden", "false"); //indique modal affiché (pour malvoyant) au lecteur d'écran
   modal.setAttribute("aria-modal", "true"); // indique que la div correspond a la modal
