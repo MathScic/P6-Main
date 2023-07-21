@@ -12,10 +12,7 @@ const openModal = async function (e) {
     console.log(error);
   }
 
-  modal.innerHTML += `<img class="modal-img"> 
-    <img src="${modal.imageUrl}" alt="${modal.title}" />
-    <figcaption>${modal.title}</figcaption>
-  </figure>`;
+  modalImg.innerHTML = `<img class="modal-img" src="${modal.imageUrl}" alt="Photo dans la modal" />`;
   modal.style.display = "flex"; //Sert a aficher la div de la modal
   modal.setAttribute("aria-hidden", "false"); //indique modal affiché (pour malvoyant) au lecteur d'écran
   modal.setAttribute("aria-modal", "true"); // indique que la div correspond a la modal
