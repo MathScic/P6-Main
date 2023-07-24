@@ -3,6 +3,7 @@
 let modal = document.querySelector(".modal");
 const modalImg = modal.querySelector(".modal-img");
 let importImg;
+const containerImg = document.querySelector(".container_suppression");
 
 const openModal = async function (e) {
   try {
@@ -12,16 +13,24 @@ const openModal = async function (e) {
     console.log(error);
   }
 
-  const containerImg = document.getElementById("img-container");
   const maxImg = 11;
   let counterImg = 0;
 
-  importImg.forEach((imageUrl) => {
-    console.log(imageUrl);
+  importImg.forEach((image) => {
+    console.log(image);
     const imgElement = document.createElement("img");
-    imgElement.src = imageUrl;
-    containerImg.append(imgElement);
-    imgElement.innerHTML += `<img src="${imgElement.imageUrl}" alt="${imgElement.title}" />`;
+    imgElement.src = image.imageUrl;
+    console.log("image element", imgElement);
+    const lienSuppr = document.createElement("a"); // creer div avec img et lien pour adapter en css en absolute
+    lienSuppr.classList.add("lien_suppr");
+    lienSuppr.innerHTML = "lien";
+    const div = document.createElement("div");
+    div.append(lienSuppr, imgElement);
+    containerImg.append(div);
+    lienSuppr.addEventListener("click", (e) => {
+      debugger;
+      containerImg.remove(e.target.parentNode);
+    });
   });
 
   modal.style.display = "flex"; //Sert a aficher la div de la modal
@@ -30,6 +39,8 @@ const openModal = async function (e) {
 };
 
 const closeModal = function (e) {
+  containerImg.innerHTML = "";
+  debugger;
   modal.style.display = "none"; //masque la div de la modal
   modal.setAttribute("aria-hidden", "true");
 };
